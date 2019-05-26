@@ -1,9 +1,13 @@
-package com.hermesjunior.anydb.Repository;
+package com.hermesjunior.anydb.Data.ItemContent;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
+import com.hermesjunior.anydb.Data.Item.Item;
+import com.hermesjunior.anydb.Data.Template.Template;
 
 import java.util.UUID;
 
@@ -18,6 +22,8 @@ import java.util.UUID;
                 childColumns = "template_uuid")},
         indices = @Index(value = "item_uuid"))
 public class ItemContent {
+
+    @NonNull
     @PrimaryKey
     private String uuid;
     private String item_uuid;
@@ -26,48 +32,36 @@ public class ItemContent {
     private int int_value;
     private float real_value;
 
-    public ItemContent(String item_uuid, String template_uuid, float real_value) {
+    public ItemContent(String item_uuid, String template_uuid, float real_value, int int_value, String string_value) {
         this.uuid = UUID.randomUUID().toString();
         this.item_uuid = item_uuid;
         this.template_uuid = template_uuid;
         this.real_value = real_value;
-    }
-
-    public ItemContent(String item_uuid, String template_uuid, int int_value) {
-        this.uuid = UUID.randomUUID().toString();
-        this.item_uuid = item_uuid;
-        this.template_uuid = template_uuid;
         this.int_value = int_value;
-    }
-
-    public ItemContent(String item_uuid, String template_uuid, String string_value) {
-        this.uuid = UUID.randomUUID().toString();
-        this.item_uuid = item_uuid;
-        this.template_uuid = template_uuid;
         this.string_value = string_value;
     }
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 
-    public void setUUID(String uuid) {
+    public void setUuid(String uuid) {
         this.uuid = uuid;
     }
 
-    public String getItem_UUID() {
+    public String getItem_uuid() {
         return item_uuid;
     }
 
-    public void setItem_UUID(String item_uuid) {
+    public void setItem_uuid(String item_uuid) {
         this.item_uuid = item_uuid;
     }
 
-    public String getTemplate_UUID() {
+    public String getTemplate_uuid() {
         return template_uuid;
     }
 
-    public void setTemplate_UUID(String template_uuid) {
+    public void setTemplate_uuid(String template_uuid) {
         this.template_uuid = template_uuid;
     }
 

@@ -1,9 +1,12 @@
-package com.hermesjunior.anydb.Repository;
+package com.hermesjunior.anydb.Data.Item;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
+import com.hermesjunior.anydb.Data.Library.Library;
 
 import java.util.Date;
 import java.util.UUID;
@@ -15,6 +18,8 @@ import java.util.UUID;
             childColumns = "lib_uuid"),
         indices = @Index(value = "lib_uuid"))
 public class Item {
+
+    @NonNull
     @PrimaryKey
     private String uuid;
     private String lib_uuid;
@@ -30,19 +35,19 @@ public class Item {
         this.created_time = new Date();
     }
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 
-    public void setUUID(String uuid) {
+    public void setUuid(String uuid) {
         this.uuid = uuid;
     }
 
-    public String getLib_UUID() {
+    public String getLib_uuid() {
         return lib_uuid;
     }
 
-    public void setLib_UUID(String lib_uuid) {
+    public void setLib_uuid(String lib_uuid) {
         this.lib_uuid = lib_uuid;
     }
 
