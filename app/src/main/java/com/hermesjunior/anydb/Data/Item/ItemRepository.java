@@ -18,8 +18,8 @@ public class ItemRepository implements IRepository<Item> {
     }
 
     @Override
-    public void insert(Item item) {
-        new Task<Item>(itemDAO).insert(item);
+    public void insert(Item object) {
+        new Task<Item>(itemDAO).insert(object);
     }
 
     @Override
@@ -29,18 +29,16 @@ public class ItemRepository implements IRepository<Item> {
 
     @Override
     public LiveData<List<Item>> getFrom() {
-        //TODO
         return null;
     }
 
     @Override
-    public void deleteAll() {
-
+    public void delete(Item item) {
+        new Task<Item>(itemDAO).delete(item);
     }
 
-
     @Override
-    public void delete(Item item) {
-
+    public void deleteAll() {
+        new Task<Item>(itemDAO).deleteAll();
     }
 }

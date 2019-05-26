@@ -6,10 +6,12 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.hermesjunior.anydb.Data.Common.IDAO;
+
 import java.util.List;
 
 @Dao
-public interface ItemContentDAO {
+public interface ItemContentDAO extends IDAO<ItemContent> {
 
     @Query("SELECT * from item_content WHERE item_uuid =:item_uuid")
     LiveData<List<ItemContent>> getContentFromItem(String item_uuid);

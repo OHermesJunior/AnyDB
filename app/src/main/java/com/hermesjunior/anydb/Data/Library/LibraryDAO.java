@@ -6,20 +6,25 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.hermesjunior.anydb.Data.Common.IDAO;
+
 import java.util.List;
 
 @Dao
-public interface LibraryDAO {
+public interface LibraryDAO extends IDAO<Library> {
 
     @Query("SELECT * from libraries ORDER BY created_time")
     LiveData<List<Library>> getAll();
 
+    @Override
     @Insert
     void insert(Library library);
 
+    @Override
     @Query("DELETE FROM Items")
     void deleteAll();
 
+    @Override
     @Delete
-    void deleteLibrary(Library library);
+    void delete(Library obj);
 }
