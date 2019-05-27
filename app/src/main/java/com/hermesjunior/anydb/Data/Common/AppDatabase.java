@@ -26,7 +26,6 @@ import com.hermesjunior.anydb.Data.Template.TemplateDAO;
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract ItemDAO itemDAO();
-
     public abstract ItemContentDAO itemContentDAO();
     public abstract TemplateDAO templateDAO();
     public abstract LibraryDAO libraryDAO();
