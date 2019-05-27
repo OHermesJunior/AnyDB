@@ -1,7 +1,6 @@
 package com.hermesjunior.anydb;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
                 libRepository.insert(lib);
                 Item item = new Item(lib.getUuid());
                 itemRepository.insert(item);
-                Log.d("ROOM", "I THINK IT WENT FINE");
             }
         });
 

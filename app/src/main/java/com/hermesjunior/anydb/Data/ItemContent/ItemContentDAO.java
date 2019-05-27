@@ -16,14 +16,14 @@ public interface ItemContentDAO extends IDAO<ItemContent> {
     @Insert
     void insert(ItemContent itemContent);
 
-    @Query("SELECT * from item_content WHERE item_uuid =:item_uuid")
-    LiveData<List<ItemContent>> getContentFromItem(String item_uuid);
+    @Query("SELECT * from item_content WHERE item_uuid =:param")
+    LiveData<List<ItemContent>> getFrom(String param);
 
     @Query("SELECT * from item_content")
     LiveData<List<ItemContent>> getAll();
 
     @Delete
-    void deleteItemContent(ItemContent itemContent);
+    void delete(ItemContent itemContent);
 
     @Query("DELETE FROM item_content")
     void deleteAll();

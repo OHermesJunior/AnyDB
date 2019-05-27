@@ -23,7 +23,7 @@ public interface TemplateDAO extends IDAO<Template> {
     LiveData<List<Template>> getAll();
 
     @Delete
-    void deleteTemplate(Template template);
+    void delete(Template template);
 
     @Query("DELETE FROM template")
     void deleteAll();

@@ -16,8 +16,8 @@ public interface ItemDAO extends IDAO<Item> {
     @Insert
     void insert(Item item);
 
-    @Query("SELECT * from items WHERE lib_uuid =:lib_uuid")
-    LiveData<List<Item>> getItemsFromLib(String lib_uuid);
+    @Query("SELECT * from items WHERE lib_uuid =:param")
+    LiveData<List<Item>> getFrom(String param);
 
     @Query("SELECT * from items")
     LiveData<List<Item>> getAll();
