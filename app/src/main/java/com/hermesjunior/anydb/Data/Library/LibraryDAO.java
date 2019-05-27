@@ -13,18 +13,15 @@ import java.util.List;
 @Dao
 public interface LibraryDAO extends IDAO<Library> {
 
-    @Query("SELECT * from libraries ORDER BY created_time")
-    LiveData<List<Library>> getAll();
-
-    @Override
     @Insert
     void insert(Library library);
 
-    @Override
-    @Query("DELETE FROM Items")
-    void deleteAll();
+    @Query("SELECT * from libraries ORDER BY created_time")
+    LiveData<List<Library>> getAll();
 
-    @Override
     @Delete
-    void delete(Library obj);
+    void delete(Library library);
+
+    @Query("DELETE FROM libraries")
+    void deleteAll();
 }

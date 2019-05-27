@@ -4,24 +4,24 @@ import android.os.AsyncTask;
 
 public class Task<T> extends AsyncTask<T, Void, Void> {
 
-    private IDAO<T> DAO;
+    final private IDAO DAO;
     private boolean insert = false;
     private boolean delete = false;
     private boolean deleteAll = false;
 
-    public Task(IDAO DAO) {
+    public Task(final IDAO DAO) {
         super();
         this.DAO = DAO;
     }
 
-    public void insert(T item) {
+    public void insert(final T obj) {
         insert = true;
-        execute(item);
+        execute(obj);
     }
 
-    public void delete(T item) {
+    public void delete(final T obj) {
         delete = true;
-        execute(item);
+        execute(obj);
     }
 
     public void deleteAll() {
@@ -30,13 +30,14 @@ public class Task<T> extends AsyncTask<T, Void, Void> {
     }
 
     @Override
-    protected Void doInBackground(final T[] items) {
-        if (insert)
-            DAO.insert(items[0]);
-        else if (delete)
-            DAO.delete(items[0]);
-        else if (deleteAll)
+    protected Void doInBackground(final T... objs) {
+        if (insert) {
+            DAO.insert(objs[0]);
+        } else if (delete) {
+            DAO.delete(objs[0]);
+        } else if (deleteAll) {
             DAO.deleteAll();
+        }
         return null;
     }
 }

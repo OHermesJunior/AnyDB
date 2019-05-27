@@ -13,18 +13,18 @@ import java.util.List;
 @Dao
 public interface TemplateDAO extends IDAO<Template> {
 
+    @Insert
+    void insert(Template template);
+
     @Query("SELECT * from template WHERE lib_uuid =:lib_uuid")
     LiveData<List<Template>> getTemplateFromLib(String lib_uuid);
 
     @Query("SELECT * from template")
     LiveData<List<Template>> getAll();
 
-    @Insert
-    void insert(Template template);
+    @Delete
+    void deleteTemplate(Template template);
 
     @Query("DELETE FROM template")
     void deleteAll();
-
-    @Delete
-    void deleteTemplate(Template template);
 }

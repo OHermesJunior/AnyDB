@@ -12,9 +12,9 @@ import java.util.List;
 
 public class LibraryRepository implements IRepository<Library> {
 
-    private LibraryDAO libraryDAO;
+    final private LibraryDAO libraryDAO;
 
-    public LibraryRepository(Application application) {
+    public LibraryRepository(final Application application) {
         libraryDAO = AppDatabase.getDatabase(application).libraryDAO();
     }
 
@@ -29,7 +29,7 @@ public class LibraryRepository implements IRepository<Library> {
     }
 
     @Override
-    public LiveData<List<Library>> getFrom() {
+    public LiveData<List<Library>> getFrom(String param) {
         return null;
     }
 

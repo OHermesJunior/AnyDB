@@ -12,15 +12,15 @@ import java.util.List;
 
 public class TemplateRepository implements IRepository<Template> {
 
-    private TemplateDAO templateDAO;
+    final private TemplateDAO templateDAO;
 
-    public TemplateRepository(Application application) {
+    public TemplateRepository(final Application application) {
         templateDAO = AppDatabase.getDatabase(application).templateDAO();
     }
 
     @Override
-    public void insert(Template obj) {
-        new Task<Template>(templateDAO).insert(obj);
+    public void insert(Template template) {
+        new Task<Template>(templateDAO).insert(template);
     }
 
     @Override
@@ -29,13 +29,13 @@ public class TemplateRepository implements IRepository<Template> {
     }
 
     @Override
-    public LiveData<List<Template>> getFrom() {
+    public LiveData<List<Template>> getFrom(String param) {
         return null;
     }
 
     @Override
-    public void delete(Template obj) {
-        new Task<Template>(templateDAO).delete(obj);
+    public void delete(Template template) {
+        new Task<Template>(templateDAO).delete(template);
     }
 
     @Override

@@ -10,7 +10,7 @@ public interface IRepository<T> {
 
     LiveData<List<T>> getAll();
 
-    LiveData<List<T>> getFrom();
+    LiveData<List<T>> getFrom(String param);
 
     void delete(T obj);
 

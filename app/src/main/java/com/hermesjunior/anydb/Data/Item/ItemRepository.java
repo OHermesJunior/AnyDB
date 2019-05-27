@@ -11,15 +11,16 @@ import com.hermesjunior.anydb.Data.Common.Task;
 import java.util.List;
 
 public class ItemRepository implements IRepository<Item> {
-    private ItemDAO itemDAO;
 
-    public ItemRepository(Application application) {
+    final private ItemDAO itemDAO;
+
+    public ItemRepository(final Application application) {
         itemDAO = AppDatabase.getDatabase(application).itemDAO();
     }
 
     @Override
-    public void insert(Item object) {
-        new Task<Item>(itemDAO).insert(object);
+    public void insert(Item item) {
+        new Task<Item>(itemDAO).insert(item);
     }
 
     @Override
@@ -28,8 +29,8 @@ public class ItemRepository implements IRepository<Item> {
     }
 
     @Override
-    public LiveData<List<Item>> getFrom() {
-        return null;
+    public LiveData<List<Item>> getFrom(String param) {
+        return itemDAO.getItemsFromLib(param);
     }
 
     @Override

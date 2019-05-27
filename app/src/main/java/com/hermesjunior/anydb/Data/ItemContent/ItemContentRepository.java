@@ -12,15 +12,15 @@ import java.util.List;
 
 public class ItemContentRepository implements IRepository<ItemContent> {
 
-    private ItemContentDAO itemContentDAO;
+    final private ItemContentDAO itemContentDAO;
 
-    public ItemContentRepository(Application application) {
+    public ItemContentRepository(final Application application) {
         itemContentDAO = AppDatabase.getDatabase(application).itemContentDAO();
     }
 
     @Override
-    public void insert(ItemContent obj) {
-        new Task<>(itemContentDAO).insert(obj);
+    public void insert(ItemContent itemContent) {
+        new Task<>(itemContentDAO).insert(itemContent);
     }
 
     @Override
@@ -29,13 +29,13 @@ public class ItemContentRepository implements IRepository<ItemContent> {
     }
 
     @Override
-    public LiveData<List<ItemContent>> getFrom() {
+    public LiveData<List<ItemContent>> getFrom(String param) {
         return null;
     }
 
     @Override
-    public void delete(ItemContent object) {
-        new Task<ItemContent>(itemContentDAO).delete(object);
+    public void delete(ItemContent itemContent) {
+        new Task<ItemContent>(itemContentDAO).delete(itemContent);
     }
 
     @Override
