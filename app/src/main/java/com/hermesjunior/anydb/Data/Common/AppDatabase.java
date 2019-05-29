@@ -21,7 +21,8 @@ import com.hermesjunior.anydb.Data.Template.TemplateDAO;
         ItemContent.class,
         Library.class,
         Template.class},
-        version = 1)
+        version = 1,
+        exportSchema = false)
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
 

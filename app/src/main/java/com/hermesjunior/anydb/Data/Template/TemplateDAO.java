@@ -17,7 +17,7 @@ public interface TemplateDAO extends IDAO<Template> {
     void insert(Template template);
 
     @Query("SELECT * from template WHERE lib_uuid =:lib_uuid")
-    LiveData<List<Template>> getTemplateFromLib(String lib_uuid);
+    LiveData<List<Template>> getFrom(String lib_uuid);
 
     @Query("SELECT * from template")
     LiveData<List<Template>> getAll();

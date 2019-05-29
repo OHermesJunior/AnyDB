@@ -27,5 +27,4 @@ public interface ItemDAO extends IDAO<Item> {
 
     @Query("DELETE FROM items")
     void deleteAll();
-
 }

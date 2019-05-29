@@ -20,7 +20,7 @@ import java.util.UUID;
         @ForeignKey(entity = Template.class,
                 parentColumns = "uuid",
                 childColumns = "template_uuid")},
-        indices = @Index(value = "item_uuid"))
+        indices = {@Index(value = "item_uuid"), @Index(value = "template_uuid")})
 public class ItemContent {
 
     @NonNull

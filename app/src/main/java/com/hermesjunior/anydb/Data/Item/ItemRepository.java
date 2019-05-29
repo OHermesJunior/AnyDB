@@ -30,7 +30,7 @@ public class ItemRepository implements IRepository<Item> {
 
     @Override
     public LiveData<List<Item>> getFrom(String param) {
-        return itemDAO.getItemsFromLib(param);
+        return itemDAO.getFrom(param);
     }
 
     @Override

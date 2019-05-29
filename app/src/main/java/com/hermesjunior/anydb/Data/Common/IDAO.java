@@ -14,9 +14,6 @@ public interface IDAO<T> {
     @Query("")
     LiveData<List<T>> getAll();
 
-    @Query("")
-    LiveData<List<T>> getFrom();
-
     @Delete
     void delete(T obj);
 
