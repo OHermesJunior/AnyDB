@@ -4,12 +4,12 @@ import android.os.AsyncTask;
 
 public class Task<T> extends AsyncTask<T, Void, Void> {
 
-    final private IDAO DAO;
+    final private IDAO<T> DAO;
     private boolean insert = false;
     private boolean delete = false;
     private boolean deleteAll = false;
 
-    public Task(final IDAO DAO) {
+    public Task(final IDAO<T> DAO) {
         super();
         this.DAO = DAO;
     }
